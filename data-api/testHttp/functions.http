@@ -1,0 +1,39 @@
+POST http://localhost:7071/api/Filament
+Content-Type: application/json
+
+{
+  "brandId": "asdasdasdasd",
+  "title": "Monofilament",
+  "filamentType": "PLA"
+}
+
+###
+
+GET http://localhost:7071/api/Filament
+Content-Type: application/json
+
+###
+
+GET http://localhost:7071/api/Filament?id=10081a63-c0cb-4204-81f8-e64886b7b87d
+Content-Type: application/json
+
+###
+
+POST http://localhost:7071/api/Order
+Content-Type: application/json
+
+{
+  "dueDate": "2021-01-01T00:00:00.000Z",
+  "status": "Active",
+  "filamentType": "PLA"
+}
+
+###
+GET http://localhost:7071/api/Order
+Content-Type: application/json
+
+###
+GET http://localhost:7071/api/Order?id=424efefc-8886-4d84-b
+Content-Type: application/json
+
+###

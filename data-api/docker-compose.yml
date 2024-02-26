@@ -1,0 +1,43 @@
+version: '3.4'
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile-nginx
+    ports:
+      - 80:80 
+  func:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "7071:80"
+    extra_hosts: 
+      - "host.docker.internal:host-gateway"
+    environment:
+      - FUNCTIONS_WORKER_RUNTIME=node
+      - TABLES_URL=http://storage:10002/devstoreaccount1
+      - ACCOUNT_NAME=devstoreaccount1
+      - ACCOUNT_KEY="Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw=="
+      - CONNECTION_STRING="DefaultEndpointsProtocol=https;AccountName=printtest42;AccountKey=A1BSfbCKgE1UOghuuHUUH/13Q1BxyNxh0cNK/RPlb/g3qVnsZyN9eIKSB4qe93xeuXlsD/5wh+C5+AStMt0GXg==;EndpointSuffix=core.windows.net"
+      - AzureWebJobsStorage="DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://storage:50003/devstoreaccount1;QueueEndpoint=http://storage:50004/devstoreaccount1;TableEndpoint=http://storage:50005/devstoreaccount1;"
+    depends_on:
+      - storage
+      - nginx
+
+  storage:
+    image: "mcr.microsoft.com/azure-storage/azurite:3.16.0"
+    ports:
+        - "50003:10000"
+        - "50004:10001"
+        - "50005:10002"
+networks:
+  nginx:
+    # Use a custom driver
+    driver: data-api-driver
+  storage:
+    # Use a custom driver
+    driver: data-api-driver
+  func:
+    # Use a custom driver
+    driver: data-api-driver

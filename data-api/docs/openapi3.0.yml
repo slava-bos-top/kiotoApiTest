@@ -1,0 +1,1033 @@
+openapi: 3.0.0
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: API
+    url: https://graph.microsoft.com/User.Read
+info:
+  description: This is a simple API
+  version: "1.0.0"
+  title: Simple Inventory API
+  contact:
+    email: you@your-company.com
+  license:
+    name: Apache 2.0
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+tags:
+  - name: filament
+    description: Information about filament
+  - name: DeliveryBox
+    description: information about Delivery Box
+  - name: order
+    description: order
+  - name: part
+  - name: print
+  - name: user
+paths:
+  /filament:
+    get:
+      tags:
+        - filament
+      summary: Get all filaments
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/FilamentModel"
+    post:
+      tags:
+        - filament
+      summary: Create a new
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FilamentModel"
+      responses:
+        "201":
+          description: Created
+  /filament?id={id}:
+    get:
+      tags:
+        - filament
+      summary: Get by ID
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: ok
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FilamentModel"
+    put:
+      tags:
+        - filament
+      summary: Update by ID
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FilamentModel"
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: Not Found
+    delete:
+      tags:
+        - filament
+      summary: Delete by ID
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: No Content
+  /DeliveryBoxPartsInfo:
+    get:
+      tags:
+        - DeliveryBox
+      summary: Get all Delivery Box Parts Info
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/DeliveryBoxPartsInfoModel"
+    post:
+      tags:
+        - DeliveryBox
+      summary: Create a new
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DeliveryBoxPartsInfoModel"
+      responses:
+        "201":
+          description: Created
+  /DeliveryBoxPartsInfo?id={id}:
+    get:
+      tags:
+        - DeliveryBox
+      summary: Get by ID
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: ok
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DeliveryBoxPartsInfoModel"
+    put:
+      tags:
+        - DeliveryBox
+      summary: Update by ID
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DeliveryBoxPartsInfoModel"
+      responses:
+        "200":
+          description: OK
+    delete:
+      tags:
+        - DeliveryBox
+      summary: Delete by ID
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Ok
+  /FilamentBox:
+    get:
+      tags:
+        - filament
+      summary: Get all Delivery Box Parts Info
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/FilamentBoxModel"
+    post:
+      tags:
+        - filament
+      summary: Create a new
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FilamentBoxModel"
+      responses:
+        "201":
+          description: Created
+  /FilamentBox?id={id}:
+    get:
+      tags:
+        - filament
+      summary: Get by ID
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: ok
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FilamentBoxModel"
+    put:
+      tags:
+        - filament
+      summary: Update by ID
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FilamentBoxModel"
+      responses:
+        "200":
+          description: OK
+    delete:
+      tags:
+        - filament
+      summary: Delete by ID
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Ok
+  /FilamentBrand:
+    get:
+      tags:
+        - filament
+      summary: Get all Delivery Box Parts Info
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/FilamentBrandModel"
+    post:
+      tags:
+        - filament
+      summary: Create a new
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FilamentBrandModel"
+      responses:
+        "201":
+          description: Created
+  /FilamentBrand?id={id}:
+    get:
+      tags:
+        - filament
+      summary: Get by ID
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: ok
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FilamentBrandModel"
+    put:
+      tags:
+        - filament
+      summary: Update by ID
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FilamentBoxModel"
+      responses:
+        "200":
+          description: OK
+    delete:
+      tags:
+        - filament
+      summary: Delete by ID
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Ok
+  /Order:
+    get:
+      tags:
+        - order
+      summary: Get all
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/OrderModel"
+    post:
+      tags:
+        - order
+      summary: Create a new
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/OrderModel"
+      responses:
+        "201":
+          description: Created
+  /Order?id={id}:
+    get:
+      tags:
+        - order
+      summary: Get by ID
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: ok
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrderModel"
+    put:
+      tags:
+        - order
+      summary: Update by ID
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/OrderModel"
+      responses:
+        "200":
+          description: OK
+    delete:
+      tags:
+        - order
+      summary: Delete by ID
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Ok
+
+  /OrderPart:
+    get:
+      tags:
+        - order
+      summary: Get all
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/OrderPartModel"
+    post:
+      tags:
+        - order
+      summary: Create a new
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/OrderPartModel"
+      responses:
+        "201":
+          description: Created
+  /OrderPart?id={id}:
+    get:
+      tags:
+        - order
+      summary: Get by ID
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: ok
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrderPartModel"
+    put:
+      tags:
+        - order
+      summary: Update by ID
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/OrderPartModel"
+      responses:
+        "200":
+          description: OK
+    delete:
+      tags:
+        - order
+      summary: Delete by ID
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Ok
+
+  /Part:
+    get:
+      tags:
+        - part
+      summary: Get all
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/PartModel"
+    post:
+      tags:
+        - part
+      summary: Create a new
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PartModel"
+      responses:
+        "201":
+          description: Created
+  /Part?id={id}:
+    get:
+      tags:
+        - part
+      summary: Get by ID
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: ok
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PartModel"
+    put:
+      tags:
+        - part
+      summary: Update by ID
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PartModel"
+      responses:
+        "200":
+          description: OK
+    delete:
+      tags:
+        - part
+      summary: Delete by ID
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Ok
+
+  /PartItem:
+    get:
+      tags:
+        - part
+      summary: Get all
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/PartItemModel"
+    post:
+      tags:
+        - part
+      summary: Create a new
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PartItemModel"
+      responses:
+        "201":
+          description: Created
+  /PartItem?id={id}:
+    get:
+      tags:
+        - part
+      summary: Get by ID
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: ok
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PartItemModel"
+    put:
+      tags:
+        - part
+      summary: Update by ID
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PartItemModel"
+      responses:
+        "200":
+          description: OK
+    delete:
+      tags:
+        - part
+      summary: Delete by ID
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Ok
+
+  /PrintRequirement:
+    get:
+      tags:
+        - print
+      summary: Get all
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/PrintRequirementModel"
+    post:
+      tags:
+        - print
+      summary: Create a new
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PrintRequirementModel"
+      responses:
+        "201":
+          description: Created
+  /PrintRequirement?id={id}:
+    get:
+      tags:
+        - print
+      summary: Get by ID
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: ok
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PrintRequirementModel"
+    put:
+      tags:
+        - print
+      summary: Update by ID
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PrintRequirementModel"
+      responses:
+        "200":
+          description: OK
+    delete:
+      tags:
+        - print
+      summary: Delete by ID
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Ok
+
+  /Users:
+    get:
+      tags:
+        - user
+      summary: Get all
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/UserModel"
+    post:
+      tags:
+        - user
+      summary: Create a new
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserModel"
+      responses:
+        "201":
+          description: Created
+  /Users?id={id}:
+    get:
+      tags:
+        - user
+      summary: Get by ID
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: ok
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserModel"
+    put:
+      tags:
+        - user
+      summary: Update by ID
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserModel"
+      responses:
+        "200":
+          description: OK
+    delete:
+      tags:
+        - user
+      summary: Delete by ID
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Ok
+
+  /UserShippingInfo:
+    get:
+      tags:
+        - user
+      summary: Get all
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/UserShippingInfoModel"
+    post:
+      tags:
+        - user
+      summary: Create a new
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserShippingInfoModel"
+      responses:
+        "201":
+          description: Created
+  /UserShippingInfo?id={id}:
+    get:
+      tags:
+        - user
+      summary: Get by ID
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: ok
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserShippingInfoModel"
+    put:
+      tags:
+        - user
+      summary: Update by ID
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserShippingInfoModel"
+      responses:
+        "200":
+          description: OK
+    delete:
+      tags:
+        - user
+      summary: Delete by ID
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Ok
+
+components:
+  schemas:
+    DeliveryBoxPartsInfoModel:
+      type: object
+      properties:
+        id:
+          type: string
+        orderPartID:
+          type: string
+        userID:
+          type: string
+        deliveryBoxType:
+          $ref: "#/components/schemas/DeliveryBoxType"
+        shippingNumber:
+          type: string
+        orderPartBookingStatus:
+          $ref: "#/components/schemas/OrderPartBookingStatus"
+        count:
+          type: number
+
+    OrderModel:
+      type: object
+      properties:
+        id:
+          type: string
+        dueDate:
+          type: string
+          format: date-time
+        status:
+          type: string
+          enum:
+            - Active
+            - Cancelled
+            - Completed
+
+    PartModel:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        itemID:
+          type: string
+        stlUrl:
+          type: string
+        weight:
+          type: string
+
+    PrintRequirementModel:
+      type: object
+      properties:
+        id:
+          type: string
+        partID:
+          type: string
+        filamentType:
+          type: string
+        requirementsUrl:
+          type: string
+
+    UserModel:
+      type: object
+      properties:
+        id:
+          type: string
+
+    UserShippingInfoModel:
+      type: object
+      properties:
+        id:
+          type: string
+
+    FilamentModel:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        brandId:
+          type: string
+        filamentType:
+          $ref: "#/components/schemas/FilamentType"
+
+    OrderPartBooking:
+      type: object
+      properties:
+        id:
+          type: string
+
+    OrderPartModel:
+      type: object
+      properties:
+        id:
+          type: string
+
+    PartItemModel:
+      type: object
+      properties:
+        id:
+          type: string
+
+    DeliveryBoxType:
+      type: string
+      enum:
+        - NP5kg
+        - NP2kgSquare
+        - Monofilament
+        - Plexiwire
+        - Geeetech
+
+    FilamentType:
+      type: string
+      enum:
+        - PLA
+        - PLAHS
+        - PETG
+        - RPETG
+
+    OrderPartBookingStatus:
+      type: string
+      enum:
+        - Active
+        - Cancelled
+
+    OrderPartStatus:
+      type: string
+      enum:
+        - Active
+        - Cancelled
+        - Completed
+
+    FilamentBoxModel:
+      type: object
+      properties:
+        filamentId:
+          type: string
+        weight:
+          type: number
+        lenght:
+          type: number
+        price:
+          type: number
+
+    FilamentBrandModel:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
